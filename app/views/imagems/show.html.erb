@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<%= image_tag "/uploads/imagem/avatar/2/imagem1.jpg" %>
+<p>
+  <strong>Nome:</strong>
+  <%= @imagem.nome %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @imagem.url %>
+</p>
+
+<p>
+  <strong>Data upload:</strong>
+  <%= @imagem.data_upload %>
+</p>
+
+<p>
+  <strong>Tamanho:</strong>
+  <%= @imagem.tamanho %>
+</p>
+
+<p>
+  <strong>Id usuario:</strong>
+  <%= @imagem.id_usuario %>
+</p>
+
+<p>
+  <strong>Publico:</strong>
+  <%= @imagem.publico %>
+</p>
+
+<p>
+  <strong>Data modificacao:</strong>
+  <%= @imagem.data_modificacao %>
+</p>
+
+<p>
+  <strong>Extensao:</strong>
+  <%= @imagem.extensao %>
+</p>
+
+<%= link_to 'Edit', edit_imagem_path(@imagem) %> |
+<%= link_to 'Back', imagems_path %>

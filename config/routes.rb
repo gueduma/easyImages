@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+
+  resources :galeria
+  resources :usuarios
+  resources :imagems
+  
+  post 'imagems/upload' => 'imagems#upload'
+  
+  #get 'imagems/upload' => 'catalog#view'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
