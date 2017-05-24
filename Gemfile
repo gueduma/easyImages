@@ -60,6 +60,7 @@ gem 'acts-as-taggable-on' # tags para os feeds e para os itens (keywords)
 gem 'jquery-ui-rails' # para o calendário
 gem 'ruby-readability', require: 'readability' # versão legível da página
 gem 'opengraph_parser' # metatags opengraph
+gem 'glib2'
 gem 'ots' # keywords
 gem 'devise' # authenticação de usuários
 gem 'carrierwave', '1.0.0'
