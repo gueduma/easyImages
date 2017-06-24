@@ -8711,3 +8711,1096 @@ Completed 200 OK in 42ms (Views: 39.7ms | ActiveRecord: 0.4ms)
 
 
   [1m[36mImagem Load (5.1ms)[0m  [1m[34mSELECT "imagems".* FROM "imagems"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20170606220252)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170606220252"]]
+  [1m[35m (9.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddIndexToUsersEmail (20170608164849)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170608164849"]]
+  [1m[35m (8.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddPasswordDigestToUsers (20170608172146)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "password_digest" varchar[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170608172146"]]
+  [1m[35m (9.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddRememberDigestToUsers (20170621170715)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_digest" varchar[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170621170715"]]
+  [1m[35m (10.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddAdminToUsers (20170623135343)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "admin" boolean DEFAULT 'f'[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170623135343"]]
+  [1m[35m (7.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddActivationToUsers (20170623144225)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "activation_digest" varchar[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "activated" boolean DEFAULT 'f'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "activated_at" datetime[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170623144225"]]
+  [1m[35m (10.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddResetToUsers (20170624030039)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_digest" varchar[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_sent_at" datetime[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170624030039"]]
+  [1m[35m (9.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/imagems/new" for 177.32.118.163 at 2017-06-24 20:53:40 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ImagemsController#new as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering imagems/new.html.erb within layouts/application
+  [1m[36mGalerium Load (0.3ms)[0m  [1m[34mSELECT "galeria".* FROM "galeria" WHERE "galeria"."id_usuario" = ?[0m  [["id_usuario", 7]]
+  Rendered imagems/new.html.erb within layouts/application (15.7ms)
+Completed 500 Internal Server Error in 7075ms (ActiveRecord: 1.9ms)
+
+
+  
+ActionView::Template::Error (require_tree argument must be a directory):
+    16:   <head>
+    17:     <title><%= full_title(yield(:title)) %></title>
+    18:     <%= csrf_meta_tags %>
+    19:     <%= stylesheet_link_tag    'application', media: 'all',
+    20:                                               'data-turbolinks-track': 'reload' %>
+    21:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    22:     <%= render 'layouts/shim' %>
+  
+app/assets/javascripts/cable.js:6
+app/views/layouts/application.html.erb:19:in `_app_views_layouts_application_html_erb___4508463558871650645_53837640'
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (11.6ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (40.9ms)
+Started GET "/imagems/new" for 177.32.118.163 at 2017-06-24 20:54:22 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ImagemsController#new as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering imagems/new.html.erb within layouts/application
+  [1m[36mGalerium Load (0.2ms)[0m  [1m[34mSELECT "galeria".* FROM "galeria" WHERE "galeria"."id_usuario" = ?[0m  [["id_usuario", 7]]
+  Rendered imagems/new.html.erb within layouts/application (15.1ms)
+Completed 500 Internal Server Error in 1269ms (ActiveRecord: 2.0ms)
+
+
+  
+ActionView::Template::Error (require_tree argument must be a directory):
+    16:   <head>
+    17:     <title><%= full_title(yield(:title)) %></title>
+    18:     <%= csrf_meta_tags %>
+    19:     <%= stylesheet_link_tag    'application', media: 'all',
+    20:                                               'data-turbolinks-track': 'reload' %>
+    21:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    22:     <%= render 'layouts/shim' %>
+  
+app/assets/javascripts/cable.js:6
+app/views/layouts/application.html.erb:19:in `_app_views_layouts_application_html_erb___4508463558871650645_53834660'
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.6ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (43.0ms)
+Started GET "/" for 177.32.118.163 at 2017-06-24 20:54:27 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (18.3ms)
+Completed 500 Internal Server Error in 125ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (require_tree argument must be a directory):
+    16:   <head>
+    17:     <title><%= full_title(yield(:title)) %></title>
+    18:     <%= csrf_meta_tags %>
+    19:     <%= stylesheet_link_tag    'application', media: 'all',
+    20:                                               'data-turbolinks-track': 'reload' %>
+    21:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    22:     <%= render 'layouts/shim' %>
+  
+app/assets/javascripts/cable.js:6
+app/views/layouts/application.html.erb:19:in `_app_views_layouts_application_html_erb___4508463558871650645_70263853182280'
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.6ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (43.2ms)
+Started GET "/imagems/new" for 177.32.118.163 at 2017-06-24 20:59:26 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ImagemsController#new as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering imagems/new.html.erb within layouts/application
+  [1m[36mGalerium Load (0.3ms)[0m  [1m[34mSELECT "galeria".* FROM "galeria" WHERE "galeria"."id_usuario" = ?[0m  [["id_usuario", 7]]
+  Rendered imagems/new.html.erb within layouts/application (15.1ms)
+Completed 500 Internal Server Error in 702ms (ActiveRecord: 1.8ms)
+
+
+  
+ActionView::Template::Error (require_tree argument must be a directory):
+    16:   <head>
+    17:     <title><%= full_title(yield(:title)) %></title>
+    18:     <%= csrf_meta_tags %>
+    19:     <%= stylesheet_link_tag    'application', media: 'all',
+    20:                                               'data-turbolinks-track': 'reload' %>
+    21:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    22:     <%= render 'layouts/shim' %>
+  
+app/assets/javascripts/cable.js:6
+app/views/layouts/application.html.erb:19:in `_app_views_layouts_application_html_erb___2088740661154076856_70086720701640'
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.7ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (39.2ms)
+Started GET "/imagems/new" for 177.32.118.163 at 2017-06-24 21:00:25 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ImagemsController#new as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering imagems/new.html.erb within layouts/application
+  [1m[36mGalerium Load (0.2ms)[0m  [1m[34mSELECT "galeria".* FROM "galeria" WHERE "galeria"."id_usuario" = ?[0m  [["id_usuario", 7]]
+  Rendered imagems/new.html.erb within layouts/application (14.2ms)
+Completed 500 Internal Server Error in 2452ms (ActiveRecord: 1.7ms)
+
+
+  
+ActionView::Template::Error (require_tree argument must be a directory):
+    16:   <head>
+    17:     <title><%= full_title(yield(:title)) %></title>
+    18:     <%= csrf_meta_tags %>
+    19:     <%= stylesheet_link_tag    'application', media: 'all',
+    20:                                               'data-turbolinks-track': 'reload' %>
+    21:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    22:     <%= render 'layouts/shim' %>
+  
+app/assets/javascripts/_cable.js:6
+app/views/layouts/application.html.erb:19:in `_app_views_layouts_application_html_erb___3317184969673299612_70343076580040'
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.2ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (32.5ms)
+Started GET "/imagems/new" for 177.32.118.163 at 2017-06-24 21:01:13 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ImagemsController#new as HTML
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" ORDER BY "usuarios"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering imagems/new.html.erb within layouts/application
+  [1m[36mGalerium Load (0.2ms)[0m  [1m[34mSELECT "galeria".* FROM "galeria" WHERE "galeria"."id_usuario" = ?[0m  [["id_usuario", 7]]
+  Rendered imagems/new.html.erb within layouts/application (14.4ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (8.6ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 1021ms (Views: 995.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/account_activations.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 177.32.118.163 at 2017-06-24 21:01:15 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/password_resets.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 177.32.118.163 at 2017-06-24 21:01:15 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/custom.self-9efb08ef9befcf0ab73ba224f8551541ffba41db13b9d9b3dd20b449079e0867.css?body=1" for 177.32.118.163 at 2017-06-24 21:01:15 +0000
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 177.32.118.163 at 2017-06-24 21:01:15 +0000
+Started GET "/assets/static_pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 177.32.118.163 at 2017-06-24 21:01:15 +0000
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 177.32.118.163 at 2017-06-24 21:01:15 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/account_activations.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.32.118.163 at 2017-06-24 21:01:15 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/action_cable.self-5454023407ffec0d29137c7110917e1e745525ae9afbc05f52104c4cd6597429.js?body=1" for 177.32.118.163 at 2017-06-24 21:01:15 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/cable.self-6e0514260c1aa76eaf252412ce74e63f68819fd19bf740595f592c5ba4c36537.js?body=1" for 177.32.118.163 at 2017-06-24 21:01:15 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/password_resets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.32.118.163 at 2017-06-24 21:01:15 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.32.118.163 at 2017-06-24 21:01:15 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/static_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.32.118.163 at 2017-06-24 21:01:15 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.32.118.163 at 2017-06-24 21:01:15 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/imagems" for 177.32.118.163 at 2017-06-24 21:01:28 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ImagemsController#index as HTML
+  Rendering imagems/index.html.erb within layouts/application
+  [1m[36mImagem Load (5.0ms)[0m  [1m[34mSELECT "imagems".* FROM "imagems"[0m
+  Rendered imagems/index.html.erb within layouts/application (39.7ms)
+  Rendered layouts/_shim.html.erb (5.6ms)
+  Rendered layouts/_header.html.erb (4.0ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 686ms (Views: 657.1ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/about" for 177.32.118.163 at 2017-06-24 21:02:13 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (20.7ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 124ms (Views: 121.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/imagems/upload" for 177.32.118.163 at 2017-06-24 21:02:44 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ImagemsController#upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"u+oufOV3ERPJ/HamlBvjPBYgWJVBcW90JxwoUoHDPvepFVUSJ+gMzQ1tEOV7U+5tIlN54AJbBkBEPEbAwbeKTQ==", "file_uploaded"=>#<ActionDispatch::Http::UploadedFile:0x007ff3f813de38 @tempfile=#<Tempfile:/tmp/RackMultipart20170624-20055-1530nry.jpg>, @original_filename="Furiosa-WeCanDoIt.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file_uploaded\"; filename=\"Furiosa-WeCanDoIt.jpg\"\r\nContent-Type: image/jpeg\r\n">, "check_publico"=>"1", "galeria"=>"4", "commit"=>"Enviar"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "imagems" ("nome", "tamanho", "id_usuario", "publico", "extensao", "created_at", "updated_at", "galerias", "id_galeria") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nome", "Furiosa-WeCanDoIt.jpg"], ["tamanho", 68.23046875], ["id_usuario", 7], ["publico", "t"], ["extensao", ".jpeg"], ["created_at", "2017-06-24 21:02:44.633994"], ["updated_at", "2017-06-24 21:02:44.633994"], ["galerias", "Furiosa-WeCanDoIt.jpg"], ["id_galeria", 4]]
+  [1m[35m (10.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "imagems" SET "url" = ?, "updated_at" = ? WHERE "imagems"."id" = ?[0m  [["url", "/uploads/imagem/galerias/8/Furiosa-WeCanDoIt.jpg"], ["updated_at", "2017-06-24 21:02:44.660861"], ["id", 8]]
+  [1m[35m (8.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://easyimages-guilhermeeduardoamaral.c9users.io/imagems/
+Completed 302 Found in 87ms (ActiveRecord: 21.7ms)
+
+
+Started GET "/imagems/" for 177.32.118.163 at 2017-06-24 21:02:45 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ImagemsController#index as HTML
+  Rendering imagems/index.html.erb within layouts/application
+  [1m[36mImagem Load (0.6ms)[0m  [1m[34mSELECT "imagems".* FROM "imagems"[0m
+  Rendered imagems/index.html.erb within layouts/application (16.5ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 121ms (Views: 118.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/imagems/" for 177.32.118.163 at 2017-06-24 21:11:06 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ImagemsController#index as HTML
+  Rendering imagems/index.html.erb within layouts/application
+  [1m[36mImagem Load (0.3ms)[0m  [1m[34mSELECT "imagems".* FROM "imagems"[0m
+  Rendered imagems/index.html.erb within layouts/application (19.9ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (4.2ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 2612ms (Views: 2592.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 177.32.118.163 at 2017-06-24 21:11:15 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (4.2ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 67ms (Views: 64.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 177.32.118.163 at 2017-06-24 21:11:26 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.5ms)
+  Rendered users/new.html.erb within layouts/application (410.6ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (4.0ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 1271ms (Views: 1242.3ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users" for 177.32.118.163 at 2017-06-24 21:13:07 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"J/NeH+eizSveQAwZlZOjGgU+kuPD0TrwPNTlQojkkfrw9oQ0Ig3XOhMYA9oeeG0Xr1PBNoYLEc6a5Si4PXV/sQ==", "user"=>{"name"=>"Guilherme", "email"=>"guisao_load@hotmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "guisao_load@hotmail.com"], ["LIMIT", 1]]
+  [1m[35m (6.9ms)[0m  [1m[31mrollback transaction[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.9ms)
+  Rendered users/new.html.erb within layouts/application (84.6ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 1486ms (Views: 188.0ms | ActiveRecord: 8.2ms)
+
+
+Started POST "/users" for 177.32.118.163 at 2017-06-24 21:13:33 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sBvOZJNpk1Z5NnwGmSaAiL2VcOmlqdbRmXfX85N/2yei5LUKUfaOiL2nGkV2bo3ZieZRnOaDv+X6V7lh0wtvnQ==", "user"=>{"name"=>"Guilherme", "email"=>"guisao_load@hotmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "guisao_load@hotmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Guilherme"], ["email", "guisao_load@hotmail.com"], ["created_at", "2017-06-24 21:13:34.055381"], ["updated_at", "2017-06-24 21:13:34.055381"], ["password_digest", "$2a$10$Y3wTFvE1AZiCkrvKXFbCqO8//KPGinyW3PvrTESU5qozTR/qYIMOa"], ["activation_digest", "$2a$10$eJDeD3R0DTolECFWY/qDheuS11XMtLDPUyL98fJbtX.irvEs7fGWG"]]
+  [1m[35m (9.7ms)[0m  [1m[36mcommit transaction[0m
+  Rendering user_mailer/account_activation.html.erb within layouts/mailer
+  Rendered user_mailer/account_activation.html.erb within layouts/mailer (19.4ms)
+UserMailer#account_activation: processed outbound mail in 37.8ms
+Completed 500 Internal Server Error in 751ms (ActiveRecord: 10.8ms)
+
+
+  
+ActionView::Template::Error (Missing host to link to! Please provide the :host parameter, set default_url_options[:host], or set :only_path to true):
+     6: Welcome to the Sample App! Click on the link below to activate your account:
+     7: </p>
+     8: 
+     9: <%= link_to "Activate", edit_account_activation_url(@user.activation_token,
+    10:                                                     email: @user.email) %>
+  
+app/views/user_mailer/account_activation.html.erb:9:in `_app_views_user_mailer_account_activation_html_erb__2988294214484550553_69850801628720'
+app/mailers/user_mailer.rb:5:in `account_activation'
+app/models/user.rb:51:in `send_activation_email'
+app/controllers/users_controller.rb:22:in `create'
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (8.5ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.2ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (57.7ms)
+Started GET "/" for 177.32.118.163 at 2017-06-24 21:25:14 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (360.5ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (4.1ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 671ms (Views: 657.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 177.32.118.163 at 2017-06-24 21:25:17 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.5ms)
+  Rendered users/new.html.erb within layouts/application (377.3ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (4.0ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 815ms (Views: 786.7ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users" for 177.32.118.163 at 2017-06-24 21:25:31 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G0gGcLfPZCJUucsPCHDe755hUPmg2o4kFssOPXzJiwnMTdxbcmB+M5nhxMyDmxDiNAwDLOUApRqw+sPHyVhlQg==", "user"=>{"name"=>"Guilherme", "email"=>"guisao_load@hotmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "guisao_load@hotmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.8ms)
+  Rendered users/new.html.erb within layouts/application (22.4ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 577ms (Views: 90.1ms | ActiveRecord: 1.6ms)
+
+
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35mSQL (67.8ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+Started POST "/users" for 177.32.118.163 at 2017-06-24 21:27:37 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0t/pBgaMdqqiJTqu5zkHOXkKxkjmrQ6SeXlwE2aPZ1fAIJJoxBNrdGa0XO0IcQpoTXnnPaWHZ6YaWR6BJvvT7Q==", "user"=>{"name"=>"Guilherme", "email"=>"guisao_load@hotmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[35m (7.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "guisao_load@hotmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Guilherme"], ["email", "guisao_load@hotmail.com"], ["created_at", "2017-06-24 21:27:37.281271"], ["updated_at", "2017-06-24 21:27:37.281271"], ["password_digest", "$2a$10$ZKDxj0HybXQZ7afgrkc8zuGApuueNnQ12ABcVqzskRL/BRJ9jgsBy"], ["activation_digest", "$2a$10$F9x9QX3phX2WPCHwVTvbwOS7YpZ2zidHWR/1PkSv7dcMh10BaaaNy"]]
+  [1m[35m (9.8ms)[0m  [1m[36mcommit transaction[0m
+  Rendering user_mailer/account_activation.html.erb within layouts/mailer
+  Rendered user_mailer/account_activation.html.erb within layouts/mailer (4.9ms)
+  Rendering user_mailer/account_activation.text.erb within layouts/mailer
+  Rendered user_mailer/account_activation.text.erb within layouts/mailer (0.5ms)
+UserMailer#account_activation: processed outbound mail in 348.8ms
+Sent mail to guisao_load@hotmail.com (37.5ms)
+Date: Sat, 24 Jun 2017 21:27:38 +0000
+From: noreply@example.com
+To: guisao_load@hotmail.com
+Message-ID: <594ed94ab1545_576a1b3305c32081@guilhermeeduardoamaral-easyimages-4756826.mail>
+Subject: Account activation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_594ed94aaaa4b_576a1b3305c31972";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_594ed94aaaa4b_576a1b3305c31972
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi Guilherme,
+
+Welcome to the Sample App! Click on the link below to activate your account:
+
+https://example.com/account_activations/lGsV9vORbJi1DgPrsAVk9g/edit?email=guisao_load%40hotmail.com
+
+----==_mimepart_594ed94aaaa4b_576a1b3305c31972
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Sample App</h1>
+
+<p>Hi Guilherme,</p>
+
+<p>
+Welcome to the Sample App! Click on the link below to activate your account:
+</p>
+
+<a href="https://example.com/account_activations/lGsV9vORbJi1DgPrsAVk9g/edit?email=guisao_load%40hotmail.com">Activate</a>
+  </body>
+</html>
+
+----==_mimepart_594ed94aaaa4b_576a1b3305c31972--
+
+Redirected to https://easyimages-guilhermeeduardoamaral.c9users.io/
+Completed 302 Found in 1615ms (ActiveRecord: 19.7ms)
+
+
+Started GET "/" for 177.32.118.163 at 2017-06-24 21:27:38 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (4.5ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 76ms (Views: 72.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 177.32.118.163 at 2017-06-24 21:27:51 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (13.8ms)
+  Rendered layouts/_shim.html.erb (1.6ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 169ms (Views: 166.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 177.32.118.163 at 2017-06-24 21:28:04 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NZ1e0p7iRR0EIdOVUvPAu+wU9Eqq/za/ADCV460kx7jOLPfE3JCblZy0ywavaT/+5QasllGsBF352/eEwh35gg==", "session"=>{"email"=>"guisao_load@hotmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (54.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "guisao_load@hotmail.com"], ["LIMIT", 1]]
+Redirected to https://easyimages-guilhermeeduardoamaral.c9users.io/
+Completed 302 Found in 136ms (ActiveRecord: 54.0ms)
+
+
+Started GET "/" for 177.32.118.163 at 2017-06-24 21:28:04 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (14.7ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (3.6ms)
+Completed 200 OK in 212ms (Views: 210.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 177.32.118.163 at 2017-06-24 21:28:17 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (5.2ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 74ms (Views: 72.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/help" for 177.32.118.163 at 2017-06-24 21:28:21 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#help as HTML
+  Rendering static_pages/help.html.erb within layouts/application
+  Rendered static_pages/help.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 101ms (Views: 97.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/help" for 177.32.118.163 at 2017-06-24 21:29:36 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#help as HTML
+  Rendering static_pages/help.html.erb within layouts/application
+  Rendered static_pages/help.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_shim.html.erb (32.5ms)
+  Rendered layouts/_header.html.erb (124.6ms)
+  Rendered layouts/_footer.html.erb (53.9ms)
+Completed 200 OK in 578ms (Views: 547.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/account_activations.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 177.32.118.163 at 2017-06-24 21:29:37 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 177.32.118.163 at 2017-06-24 21:29:38 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/static_pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 177.32.118.163 at 2017-06-24 21:29:38 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/bootstrap_and_overrides.self-c8e217f26faed09a29088dc228cd7dde0730cb4a2f45ee332528b8dde079bfcf.css?body=1" for 177.32.118.163 at 2017-06-24 21:29:38 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 177.32.118.163 at 2017-06-24 21:29:38 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/custom.self-9efb08ef9befcf0ab73ba224f8551541ffba41db13b9d9b3dd20b449079e0867.css?body=1" for 177.32.118.163 at 2017-06-24 21:29:38 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/password_resets.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 177.32.118.163 at 2017-06-24 21:29:38 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 177.32.118.163 at 2017-06-24 21:29:38 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 177.32.118.163 at 2017-06-24 21:29:38 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 177.32.118.163 at 2017-06-24 21:29:38 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/twitter/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for 177.32.118.163 at 2017-06-24 21:29:38 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/twitter/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for 177.32.118.163 at 2017-06-24 21:29:38 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/twitter/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for 177.32.118.163 at 2017-06-24 21:29:39 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/twitter/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for 177.32.118.163 at 2017-06-24 21:29:39 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/twitter/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for 177.32.118.163 at 2017-06-24 21:29:39 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/twitter/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for 177.32.118.163 at 2017-06-24 21:29:39 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/twitter/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for 177.32.118.163 at 2017-06-24 21:29:39 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/twitter/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for 177.32.118.163 at 2017-06-24 21:29:39 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/twitter/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for 177.32.118.163 at 2017-06-24 21:29:39 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/twitter/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for 177.32.118.163 at 2017-06-24 21:29:39 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/twitter/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for 177.32.118.163 at 2017-06-24 21:29:39 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/twitter/bootstrap.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 177.32.118.163 at 2017-06-24 21:29:39 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/turbolinks.self-1d1fddf91adc38ac2045c51f0a3e05ca97d07d24d15a4dcbf705009106489e69.js?body=1" for 177.32.118.163 at 2017-06-24 21:29:39 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/account_activations.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.32.118.163 at 2017-06-24 21:29:40 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/bootstrap.self-fdc98dee79ee88255e10cac6caa91338165cb76cf0d263744d8d90011fc2ef8f.js?body=1" for 177.32.118.163 at 2017-06-24 21:29:40 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/action_cable.self-5454023407ffec0d29137c7110917e1e745525ae9afbc05f52104c4cd6597429.js?body=1" for 177.32.118.163 at 2017-06-24 21:29:40 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/cable.self-6e0514260c1aa76eaf252412ce74e63f68819fd19bf740595f592c5ba4c36537.js?body=1" for 177.32.118.163 at 2017-06-24 21:29:40 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/eventos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.32.118.163 at 2017-06-24 21:29:40 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/galeria.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.32.118.163 at 2017-06-24 21:29:40 +0000
+Started GET "/assets/imagems.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.32.118.163 at 2017-06-24 21:29:40 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/password_resets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.32.118.163 at 2017-06-24 21:29:40 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.32.118.163 at 2017-06-24 21:29:41 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/static_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.32.118.163 at 2017-06-24 21:29:41 +0000
+Started GET "/assets/twitter/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for 177.32.118.163 at 2017-06-24 21:29:41 +0000
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.32.118.163 at 2017-06-24 21:29:41 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/usuarios.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 177.32.118.163 at 2017-06-24 21:29:41 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 177.32.118.163 at 2017-06-24 21:29:42 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/favicon.ico" for 177.32.118.163 at 2017-06-24 21:29:43 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:20:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.4) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.4) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.4) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (172.3ms)
+Started GET "/help" for 177.32.118.163 at 2017-06-24 21:29:48 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#help as HTML
+  Rendering static_pages/help.html.erb within layouts/application
+  Rendered static_pages/help.html.erb within layouts/application (49.9ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 452ms (Views: 360.4ms | ActiveRecord: 0.0ms)
+
+
+  Rendered collection of /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb [47 times] (4470.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (47.3ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (5018.0ms)
+Started GET "/" for 177.32.118.163 at 2017-06-24 21:30:02 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (5.3ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 96ms (Views: 93.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 177.32.118.163 at 2017-06-24 21:30:52 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 62ms (Views: 60.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact" for 177.32.118.163 at 2017-06-24 21:30:57 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#contact as HTML
+  Rendering static_pages/contact.html.erb within layouts/application
+  Rendered static_pages/contact.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 94ms (Views: 91.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/help" for 177.32.118.163 at 2017-06-24 21:31:05 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#help as HTML
+  Rendering static_pages/help.html.erb within layouts/application
+  Rendered static_pages/help.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 69ms (Views: 68.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 177.32.118.163 at 2017-06-24 21:31:07 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 69ms (Views: 67.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 177.32.118.163 at 2017-06-24 21:31:09 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 64ms (Views: 62.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios" for 177.32.118.163 at 2017-06-24 21:31:29 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsuariosController#index as HTML
+  Rendering usuarios/index.html.erb within layouts/application
+  [1m[36mUsuario Load (9.1ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios"[0m
+  Rendered usuarios/index.html.erb within layouts/application (15.4ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 77ms (Views: 64.0ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/usuarios/7" for 177.32.118.163 at 2017-06-24 21:31:35 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsuariosController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUsuario Load (2.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering usuarios/show.html.erb within layouts/application
+  Rendered usuarios/show.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 67ms (Views: 61.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/usuarios" for 177.32.118.163 at 2017-06-24 21:33:10 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsuariosController#index as HTML
+  Rendering usuarios/index.html.erb within layouts/application
+  [1m[36mUsuario Load (0.7ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios"[0m
+  Rendered usuarios/index.html.erb within layouts/application (12.1ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 149ms (Views: 141.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/login" for 177.32.118.163 at 2017-06-24 21:45:28 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (9.0ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 75ms (Views: 73.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 177.32.118.163 at 2017-06-24 21:45:31 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (3.4ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 61ms (Views: 59.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/help" for 177.32.118.163 at 2017-06-24 21:45:35 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#help as HTML
+  Rendering static_pages/help.html.erb within layouts/application
+  Rendered static_pages/help.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 62ms (Views: 61.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 177.32.118.163 at 2017-06-24 21:45:37 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 69ms (Views: 67.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 177.32.118.163 at 2017-06-24 21:45:50 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+UblyAxcuzEnV9SMwIQQCFqSJNfotqr+O/gjZNAWIMYC90zeTi5lub/CzB89Hu9NU4B8CxPlmBzCE0EDvy8e/A==", "session"=>{"email"=>"guisao_load@hotmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "guisao_load@hotmail.com"], ["LIMIT", 1]]
+Redirected to https://easyimages-guilhermeeduardoamaral.c9users.io/
+Completed 302 Found in 77ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 177.32.118.163 at 2017-06-24 21:45:50 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 60ms (Views: 58.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 177.32.118.163 at 2017-06-24 21:45:57 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 202ms (Views: 200.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/help" for 177.32.118.163 at 2017-06-24 21:45:59 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#help as HTML
+  Rendering static_pages/help.html.erb within layouts/application
+  Rendered static_pages/help.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 59ms (Views: 58.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 177.32.118.163 at 2017-06-24 21:46:02 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (3.4ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 62ms (Views: 61.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 177.32.118.163 at 2017-06-24 21:46:06 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 60ms (Views: 58.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 177.32.118.163 at 2017-06-24 22:00:12 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (404.3ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (4.4ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 956ms (Views: 937.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 177.32.118.163 at 2017-06-24 22:01:16 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LX6Nw8Rw/l5PrwpAYofabDOEPSCDvsdp3hfHt0wmAhs/gfatBu/jgIs+bAONz9c9B/ccVcCUrl29N6klDFK2oQ==", "session"=>{"email"=>"example@railstutorial.org", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@railstutorial.org"], ["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_shim.html.erb (1.2ms)
+  Rendered layouts/_header.html.erb (3.0ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 208ms (Views: 194.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 177.32.118.163 at 2017-06-24 22:01:44 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (426.5ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (4.0ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 723ms (Views: 709.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 177.32.118.163 at 2017-06-24 22:01:47 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (335.6ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 399ms (Views: 398.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 177.32.118.163 at 2017-06-24 22:02:01 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+Redirected to https://easyimages-guilhermeeduardoamaral.c9users.io/login
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 177.32.118.163 at 2017-06-24 22:02:01 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 74ms (Views: 71.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 177.32.118.163 at 2017-06-24 22:02:29 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+Redirected to https://easyimages-guilhermeeduardoamaral.c9users.io/login
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 177.32.118.163 at 2017-06-24 22:02:30 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 65ms (Views: 64.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 177.32.118.163 at 2017-06-24 22:03:39 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XODl2CTuOkAXh2qp5cGpw+5hH4XYX4PfOCHdmNdsiKFOH5625nEnntMWDOoKiaSS2hI+8Jt16utbAbMKlxg8Gw==", "session"=>{"email"=>"guisao_load@hotmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "guisao_load@hotmail.com"], ["LIMIT", 1]]
+Redirected to https://easyimages-guilhermeeduardoamaral.c9users.io/
+Completed 302 Found in 99ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 177.32.118.163 at 2017-06-24 22:03:39 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 64ms (Views: 62.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 177.32.118.163 at 2017-06-24 22:03:47 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (7.0ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 126ms (Views: 124.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 177.32.118.163 at 2017-06-24 22:04:31 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 65ms (Views: 63.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 177.32.118.163 at 2017-06-24 22:04:40 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 80ms (Views: 79.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 177.32.118.163 at 2017-06-24 22:04:53 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/xPEjHdIA13QCm8wiIpCkLwjr+fMhJKncB/J8ULcxwsEom2aNTrd1Uifd6N1EL3VtTH3OzfXoEWJ9KuWLeX5MQ==", "session"=>{"email"=>"guisao_load@hotmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "guisao_load@hotmail.com"], ["LIMIT", 1]]
+Redirected to https://easyimages-guilhermeeduardoamaral.c9users.io/
+Completed 302 Found in 107ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 177.32.118.163 at 2017-06-24 22:04:54 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (4.1ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (1.2ms)
+Completed 200 OK in 119ms (Views: 117.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 177.32.118.163 at 2017-06-24 22:23:59 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_shim.html.erb (1.0ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 105ms (Views: 102.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 177.32.118.163 at 2017-06-24 22:24:11 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9fVynMM4dkwM8zZ/c3/HStB9aLy1wZpS9pLQb0SI6JgORNuKgUqoxJRmLuyO5TgP2W8wYE6SqLAPebIIK7HWog==", "session"=>{"email"=>"guisao_load@hotmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "guisao_load@hotmail.com"], ["LIMIT", 1]]
+Redirected to https://easyimages-guilhermeeduardoamaral.c9users.io/
+Completed 302 Found in 163ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 177.32.118.163 at 2017-06-24 22:24:11 +0000
+Cannot render console from 177.32.118.163! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (10.8ms)
+  Rendered layouts/_shim.html.erb (0.8ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (1.2ms)
+Completed 200 OK in 183ms (Views: 181.6ms | ActiveRecord: 0.0ms)
+
+
