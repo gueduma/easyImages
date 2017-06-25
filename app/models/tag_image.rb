@@ -1,0 +1,2 @@
+class TagImage < ApplicationRecord
+end

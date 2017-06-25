@@ -1,0 +1,57 @@
+<%= form_for(imagem) do |f| %>
+  <% if imagem.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(imagem.errors.count, "error") %> prohibited this imagem from being saved:</h2>
+
+      <ul>
+      <% imagem.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %>
+    <%= f.text_field :nome %>
+  </div>
+
+  <div class="field">
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+  </div>
+
+  <div class="field">
+    <%= f.label :data_upload %>
+    <%= f.datetime_select :data_upload %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tamanho %>
+    <%= f.text_field :tamanho %>
+  </div>
+
+  <div class="field">
+    <%= f.label :id_usuario %>
+    <%= f.text_field :id_usuario %>
+  </div>
+
+  <div class="field">
+    <%= f.label :publico %>
+    <%= f.check_box :publico %>
+  </div>
+
+  <div class="field">
+    <%= f.label :data_modificacao %>
+    <%= f.datetime_select :data_modificacao %>
+  </div>
+
+  <div class="field">
+    <%= f.label :extensao %>
+    <%= f.text_field :extensao %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

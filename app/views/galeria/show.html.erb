@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @galerium.nome %>
+</p>
+
+<p>
+  <strong>Id usuario:</strong>
+  <%= @galerium.id_usuario %>
+</p>
+
+<%= link_to 'Edit', edit_galerium_path(@galerium) %> |
+<%= link_to 'Back', galeria_path %>

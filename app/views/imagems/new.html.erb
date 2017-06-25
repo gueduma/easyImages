@@ -1,0 +1,46 @@
+<div class = 'container'>
+   <h1>Cadastrar Imagem</h1>
+   
+   <%= form_tag imagems_upload_path, method: "post", multipart: true, class: 'form-horizontal', style: 'margin-top:70px;' do %>
+   
+   <div class="form-group">
+     <label for="usuario" class="col-sm-2 control-label">Usuário</label>
+     <div class="col-sm-10">
+         <p class="form-control-static"> <%= @usuario.nome  %> </p>
+      </div>
+   </div>
+   
+   <div class="form-group">
+      <label for="file_uploaded" class="col-sm-2 control-label">Escolha a imagem</label>
+      <div class="col-sm-10">
+         <%= file_field_tag :file_uploaded %> <br>
+      </div>
+   </div>
+   
+   <div class='form-group'>
+     <label for="check_publico" class="col-sm-2 control-label">Acesso</label>
+     <div class="col-sm-10 checkbox">
+         <label>
+           <%= check_box_tag :check_publico %> Público
+         </label>
+     </div>
+   </div>
+   
+   <div class='form-group'>
+     <label for="galeria" class="col-sm-2 control-label">Escolha a galeria</label>
+     <div class="col-sm-4">
+       <%= select_tag :galeria, options_from_collection_for_select(@galerias, "id", "nome" ), class: 'form-control' %>
+     </div>
+   </div>
+   
+   <div class = 'form-group'>
+      <div class="col-sm-offset-2 col-sm-10">
+         <%= submit_tag "Enviar", class: 'btn btn-primary', style: 'margin-top:70px;' %>
+      </div>
+   </div>
+   
+   <% end %>
+   
+   <%= link_to 'Back', imagems_path %>
+
+</div>
