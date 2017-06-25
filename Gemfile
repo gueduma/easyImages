@@ -6,6 +6,14 @@ git_source(:github) do |repo_name|
 end
 
 gem 'rails', '~> 5.0.0'
+
+# Edson
+gem 'bcrypt', '3.1.11'
+gem 'faker', '1.7.3'
+gem 'will_paginate',           '3.1.5'
+gem 'bootstrap-will_paginate', '1.0.0'
+# Fim
+
 gem 'puma', '~> 3.0'
 
 gem 'sass-rails', '~> 5.0'
@@ -47,6 +55,13 @@ group :test do
   gem 'database_cleaner'
   gem 'vcr'
   gem 'webmock'
+  # Edson
+  gem 'rails-controller-testing', '0.1.1'
+  gem 'minitest-reporters', '1.1.9'
+  gem 'guard', '2.14.1'
+  gem 'guard-minitest', '2.4.4'
+  gem 'minitest', '~> 5.10', '!= 5.10.2' # add this here to fix error
+  # Fim 
 end
 
 gem 'mysql2'
