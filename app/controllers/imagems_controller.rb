@@ -5,8 +5,6 @@ class ImagemsController < ApplicationController
   # GET /imagems.json
   def index
     @imagems = Imagem.all
-
-    
   end
 
   # GET /imagems/1
@@ -17,11 +15,11 @@ class ImagemsController < ApplicationController
   # GET /imagems/new
   def new
     # @imagem = Imagem.new
-    @usuario = Usuario.all.first
+    @usuario = User.find(session[:user_id])
     
-    session[:usuario] = @usuario
+    # session[:usuario] = @usuario
     
-    @galerias = Galerium.where(id_usuario: @usuario.id)
+    @galerias = Galerium.where(id_usuario: session[:user_id])
     
   end
 
