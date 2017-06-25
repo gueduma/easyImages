@@ -53,6 +53,8 @@ GEM
       railties (>= 3.1.0)
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
+    bootstrap-tagsinput-rails (0.4.2.1)
+      railties (>= 3.1)
     bootstrap-will_paginate (1.0.0)
       will_paginate
     builder (3.2.3)
@@ -352,6 +354,7 @@ DEPENDENCIES
   bcrypt (= 3.1.11)
   bootstrap-generators (~> 3.3.4)
   bootstrap-sass (~> 3.2.0)
+  bootstrap-tagsinput-rails
   bootstrap-will_paginate (= 1.0.0)
   byebug
   capybara

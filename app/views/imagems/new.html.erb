@@ -38,6 +38,14 @@
    </div>
    
    <div class = 'form-group'>
+      <label for="tagsinput" class="col-sm-2 control-label">Tags</label>
+      <div class="col-sm-4">
+         <%= text_field_tag :tags, '', :class =>'form-control', 'data-role'=>'tagsinput' %>
+         <!--'data-role'=>'tagsinput'-->
+       </div>
+   </div>
+   
+   <div class = 'form-group'>
       <div class="col-sm-offset-2 col-sm-10">
          <%= submit_tag "Enviar", class: 'btn btn-primary', style: 'margin-top:70px;' %>
       </div>

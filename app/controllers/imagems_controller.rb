@@ -27,6 +27,9 @@ class ImagemsController < ApplicationController
     if params.key?(:file_uploaded) == false
       redirect_to '/imagems/'
     end
+    
+    # Inserção de imagem
+    
     img = Imagem.new nome: params[:file_uploaded].original_filename, id_usuario: session[:usuario]["id"], tamanho: params[:file_uploaded].size/1024.0, publico: params.key?(:check_publico) ? params[:check_publico] : false, extensao: ".#{params[:file_uploaded].content_type.rpartition('/').last}", id_galeria: params[:galeria]
     img.galerias = params[:file_uploaded].tempfile
     
@@ -37,6 +40,23 @@ class ImagemsController < ApplicationController
     img.save!
     
     img.update(url: img.galerias.url)
+    
+    # Inserção de tags
+    
+    tags = []
+    tags = params[:tags].split ","
+    
+  tags.each do |tag|
+     if !Tag.exists?(nome: tag)
+       obj_tag = Tag.new :nome => tag
+       obj_tag.save
+     end
+     
+     obj_tag = Tag.where(:nome => tag).first
+     obj_tag_image = TagImage.new :id_tag => obj_tag.id, :id_image => img.id
+     obj_tag_image.save
+  end
+  
     
     redirect_to new_imagem_path, notice: 'Imagem cadastrada com sucesso.'
   end

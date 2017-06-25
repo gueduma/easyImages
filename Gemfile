@@ -7,12 +7,10 @@ end
 
 gem 'rails', '~> 5.0.0'
 
-# Edson
 gem 'bcrypt', '3.1.11'
 gem 'faker', '1.7.3'
 gem 'will_paginate',           '3.1.5'
 gem 'bootstrap-will_paginate', '1.0.0'
-# Fim
 
 gem 'puma', '~> 3.0'
 
@@ -24,6 +22,8 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'sqlite3'
+gem 'bootstrap-tagsinput-rails'
+
 
 group :production do
   gem 'pg'
