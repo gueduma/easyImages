@@ -24,11 +24,12 @@ class GaleriaController < ApplicationController
   # POST /galeria
   # POST /galeria.json
   def create
+    params[:galerium][:id_usuario] = session[:user_id]
     @galerium = Galerium.new(galerium_params)
 
     respond_to do |format|
       if @galerium.save
-        format.html { redirect_to @galerium, notice: 'Galerium was successfully created.' }
+        format.html { redirect_to new_galerium_path, notice: 'Galeria criada com sucesso.' }
         format.json { render :show, status: :created, location: @galerium }
       else
         format.html { render :new }

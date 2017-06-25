@@ -20,7 +20,7 @@ class ImagemsController < ApplicationController
     # session[:usuario] = @usuario
     
     @galerias = Galerium.where(id_usuario: session[:user_id])
-    
+  
   end
 
   def upload
@@ -38,7 +38,7 @@ class ImagemsController < ApplicationController
     
     img.update(url: img.galerias.url)
     
-    redirect_to '/imagems/'
+    redirect_to new_imagem_path, notice: 'Imagem cadastrada com sucesso.'
   end
   # GET /imagems/1/edit
   def edit
@@ -51,7 +51,7 @@ class ImagemsController < ApplicationController
 
     respond_to do |format|
       if @imagem.save
-        format.html { redirect_to @imagem, notice: 'Imagem was successfully created.' }
+        format.html { redirect_to new_imagem_path, notice: 'Imagem cadastrada com sucesso.' }
         format.json { render :show, status: :created, location: @imagem }
       else
         format.html { render :new }

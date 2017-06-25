@@ -1,12 +1,16 @@
 <div class = 'container'>
    <h1>Cadastrar Imagem</h1>
    
+   <br/>
+      <p id="notice"><%= notice %></p>
+   <br/>
+   
    <%= form_tag imagems_upload_path, method: "post", multipart: true, class: 'form-horizontal', style: 'margin-top:70px;' do %>
    
    <div class="form-group">
      <label for="usuario" class="col-sm-2 control-label">Usuário</label>
      <div class="col-sm-10">
-         <p class="form-control-static"> <%= @usuario.nome  %> </p>
+         <p class="form-control-static"> <%= @usuario.name  %> </p>
       </div>
    </div>
    
