@@ -4,7 +4,26 @@ class ImagemsController < ApplicationController
   # GET /imagems
   # GET /imagems.json
   def index
-    @imagems = Imagem.all
+    @imagems = Imagem.where(:id_usuario => session[:user_id])
+    @hgaleria = Hash.new
+    all_gal = Galerium.where(:id_usuario => session[:user_id])
+    all_gal.each do |galeria|
+      @hgaleria[galeria.id] = galeria.nome
+    end
+    
+    @htags = Hash.new
+    @imagems.each do |img|
+      all_img_tags = TagImage.where(:id_image => img.id)
+      all_img_tags.each do |tag|
+        img_tag = Tag.find(tag.id_tag)
+        if @htags[img.id] != nil
+          @htags[img.id] = @htags[img.id] + img_tag.nome + " "
+        else
+          @htags[img.id] = img_tag.nome + " "
+        end
+      end
+    end
+    
   end
 
   # GET /imagems/1
@@ -30,7 +49,7 @@ class ImagemsController < ApplicationController
     
     # Inserção de imagem
     
-    img = Imagem.new nome: params[:file_uploaded].original_filename, id_usuario: session[:usuario]["id"], tamanho: params[:file_uploaded].size/1024.0, publico: params.key?(:check_publico) ? params[:check_publico] : false, extensao: ".#{params[:file_uploaded].content_type.rpartition('/').last}", id_galeria: params[:galeria]
+    img = Imagem.new nome: params[:file_uploaded].original_filename, id_usuario: session[:user_id], tamanho: params[:file_uploaded].size/1024.0, publico: params.key?(:check_publico) ? params[:check_publico] : false, extensao: ".#{params[:file_uploaded].content_type.rpartition('/').last}", id_galeria: params[:galeria]
     img.galerias = params[:file_uploaded].tempfile
     
     img.galerias.original_filename = params[:file_uploaded].original_filename
@@ -56,7 +75,6 @@ class ImagemsController < ApplicationController
      obj_tag_image = TagImage.new :id_tag => obj_tag.id, :id_image => img.id
      obj_tag_image.save
   end
-  
     
     redirect_to new_imagem_path, notice: 'Imagem cadastrada com sucesso.'
   end

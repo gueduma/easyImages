@@ -7,12 +7,13 @@
   <thead>
     <tr>
       <th>Nome</th>
-      <th>Url</th>
+      <!--<th>Url</th>-->
       <th>Data upload</th>
       <th>Tamanho</th>
-      <th>Id usuário</th>
+      <th>Galeria</th>
+      <th>Tags</th>
       <th>Público</th>
-      <th>Extensão</th>
+      <!--<th>Extensão</th>-->
       <th>Imagem</th>
       <th colspan="3"></th>
     </tr>
@@ -22,12 +23,13 @@
     <% @imagems.each do |imagem| %>
       <tr>
         <td><%= imagem.nome %></td>
-        <td><%= imagem.url %></td>
+        <!--<td>< %= imagem.url %></td>-->
         <td><%= imagem.created_at %></td>
-        <td><%= imagem.tamanho %></td>
-        <td><%= imagem.id_usuario %></td>
+        <td><%= imagem.tamanho.round(2) %> MB</td>
+        <td><%= @hgaleria[imagem.id_galeria] %></td>
+        <td><%= @htags[imagem.id] %></td>
         <td><%= imagem.publico %></td>
-        <td><%= imagem.extensao %></td>
+        <!--<td>< %= imagem.extensao %></td>-->
         <td><%= image_tag imagem.url, size: "300x200"  %></td>
         <!--<td> #link_to 'Show', imagem </td>-->
         <!--<td> #link_to 'Edit', edit_imagem_path(imagem) </td>-->

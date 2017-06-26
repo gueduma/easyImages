@@ -4,7 +4,7 @@ class GaleriaController < ApplicationController
   # GET /galeria
   # GET /galeria.json
   def index
-    @galeria = Galerium.all
+    @galeria = Galerium.where(:id_usuario => session[:user_id])
   end
 
   # GET /galeria/1

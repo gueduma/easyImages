@@ -21,6 +21,10 @@ class UsersController < ApplicationController
     if @user.save
       @user.send_activation_email
       flash[:info] = "Please check your email to activate your account."
+      
+      gal = Galerium.create(:nome => "Outros", :id_usuario => @user.id)
+      gal.save
+      
       redirect_to root_url
     else
       render 'new'
