@@ -43,7 +43,7 @@ class GaleriaController < ApplicationController
   def update
     respond_to do |format|
       if @galerium.update(galerium_params)
-        format.html { redirect_to @galerium, notice: 'Galerium was successfully updated.' }
+        format.html { redirect_to @galerium, notice: 'Galeria atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @galerium }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class GaleriaController < ApplicationController
   def destroy
     @galerium.destroy
     respond_to do |format|
-      format.html { redirect_to galeria_url, notice: 'Galerium was successfully destroyed.' }
+      format.html { redirect_to galeria_url, notice: 'Galeria apagada com sucesso.' }
       format.json { head :no_content }
     end
   end
