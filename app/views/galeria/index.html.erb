@@ -16,9 +16,10 @@
       <tr>
         <td><%= galerium.nome %></td>
         <!--<td>< %= galerium.id_usuario %></td>-->
-        <td><%= link_to 'Show', galerium %></td>
-        <td><%= link_to 'Edit', edit_galerium_path(galerium) %></td>
-        <td><%= link_to 'Destroy', galerium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', galerium %></td>
+        <td><%= link_to 'Editar', edit_galerium_path(galerium) %></td>
+        <td><%= link_to 'Apagar', galerium, method: :delete, data: { confirm: 
+        'Você tem certeza de que deseja apagar essa galeria?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Galerium', new_galerium_path %>
+<%= link_to 'Nova Galerium', new_galerium_path %>

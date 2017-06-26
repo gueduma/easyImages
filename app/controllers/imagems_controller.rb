@@ -103,7 +103,7 @@ class ImagemsController < ApplicationController
   def update
     respond_to do |format|
       if @imagem.update(imagem_params)
-        format.html { redirect_to @imagem, notice: 'Imagem was successfully updated.' }
+        format.html { redirect_to @imagem, notice: 'Imagem atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @imagem }
       else
         format.html { render :edit }
@@ -117,7 +117,7 @@ class ImagemsController < ApplicationController
   def destroy
     @imagem.destroy
     respond_to do |format|
-      format.html { redirect_to imagems_url, notice: 'Imagem was successfully destroyed.' }
+      format.html { redirect_to imagems_url, notice: 'Imagem apagada com sucesso.' }
       format.json { head :no_content }
     end
   end
