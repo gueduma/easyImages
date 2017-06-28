@@ -3,10 +3,7 @@ capybara-*.html
 .rspec
 /log
 /tmp
-<<<<<<< HEAD
 /db/*.sqlite3
-=======
->>>>>>> origin/feature/upload-image
 /db/*.sqlite3-journal
 /public/system
 /coverage/
@@ -47,8 +44,7 @@ bower.json
 .byebug_history
 
 # VSCode files
-<<<<<<< HEAD
 .vscode
-=======
-.vscode
->>>>>>> origin/feature/upload-image
+
+# System files
+.DS_Store

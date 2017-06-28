@@ -1,5 +1,5 @@
-Hi <%= @user.name %>,
+Olá <%= @user.name %>,
 
-Welcome to the Sample App! Click on the link below to activate your account:
+Bem-vindo ao Easy Images! Para ativar a sua conta clique no link abaixo:
 
 <%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
