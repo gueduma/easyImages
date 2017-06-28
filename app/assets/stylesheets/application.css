@@ -14,3 +14,10 @@
  *= require bootstrap-tagsinput
  *= require_self
  */
+#file_uploaded {
+    border: 0px !important;
+}
+
+#check_publico{
+    width: 2%;
+} 

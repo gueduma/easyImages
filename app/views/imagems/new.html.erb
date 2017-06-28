@@ -32,7 +32,7 @@
    
    <div class='form-group'>
      <label for="galeria" class="col-sm-2 control-label">Escolha a galeria</label>
-     <div class="col-sm-4">
+     <div class="col-sm-4" style= 'border: 0px !important; width: 500px !important;'>
        <%= select_tag :galeria, options_from_collection_for_select(@galerias, "id", "nome" ), class: 'form-control' %>
      </div>
    </div>
@@ -47,7 +47,7 @@
    
    <div class = 'form-group'>
       <div class="col-sm-offset-2 col-sm-10">
-         <%= submit_tag "Enviar", class: 'btn btn-primary', style: 'margin-top:70px;' %>
+         <%= submit_tag "Enviar", class: 'btn btn-primary', style: 'margin-top:70px;border: 0px !important; width: 500px !important;' %>
       </div>
    </div>
    
