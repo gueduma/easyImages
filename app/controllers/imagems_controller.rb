@@ -31,6 +31,98 @@ class ImagemsController < ApplicationController
   def show
   end
 
+  def search
+    if @imagens_busca == nil
+      @imagens_busca = []
+    end
+    @usuario = User.find(session[:user_id])
+    @galerias = Galerium.where(:id_usuario => session[:user_id])
+  end
+  
+  def search_click
+    @usuario = User.find(session[:user_id])
+    @galerias = Galerium.where(:id_usuario => session[:user_id])
+    @hgaleria = Hash.new
+    @galerias.each do |galeria|
+      @hgaleria[galeria.id] = galeria.nome
+    end    
+    
+    @imagens_busca = Imagem.where(:id_usuario => session[:user_id])
+    
+    if(params[:nome_imagem] != nil && params[:nome_imagem] != "")
+      @imagens_busca = @imagens_busca.where('nome LIKE ?', '%'+params[:nome_imagem]+'%')
+    end
+    
+    if(params[:tamanho_imagem] != nil && params[:tamanho_imagem] != "")
+        @imagens_busca = @imagens_busca.where('tamanho < ?', params[:tamanho_imagem].to_f )
+    end
+    
+    if(params[:check_publico] != nil && params[:check_publico] != "")
+      @imagens_busca = @imagens_busca.where(:publico => params[:check_publico] )
+    end      
+
+    if(params[:galeria] != nil && params[:galeria] != "")
+      if(params[:galeria] != 0)
+        @imagens_busca = @imagens_busca.where(:id_galeria => params[:galeria] ) 
+      end
+    end 
+    
+    if(params[:tags] != nil && params[:tags] != "")
+      
+      @imagens_busca_id = []
+      @imagens_busca.each do |imagem1|
+        @imagens_busca_id << imagem1.id
+      end
+      
+      @tag_img_seleciona = TagImage.where(id_image: @imagens_busca_id)
+      
+      all_tags = params[:tags].split(",")
+      
+      
+      tag_seleciona = Tag.where(nome: all_tags)
+      
+      
+      @tag_img_seleciona = @tag_img_seleciona.where(id_tag: tag_seleciona)
+      
+      
+      hash = Hash.new
+      @tag_img_seleciona.each do |img_tag|
+        if(hash.key?(img_tag.id_image))
+          hash[img_tag.id_image] += 1
+        else
+          hash[img_tag.id_image] = 1
+        end
+      end
+       
+      @img_selecionados = []
+      hash.each do |k,v|
+        if(v == all_tags.size)
+          @img_selecionados << k
+        end
+      end
+      
+      @imagens_busca = @imagens_busca.where(:id => @img_selecionados )
+    
+    end
+    
+    @htags = Hash.new
+    @imagens_busca.each do |img|
+      all_img_tags = TagImage.where(:id_image => img.id)
+      all_img_tags.each do |tag|
+        img_tag = Tag.find(tag.id_tag)
+        if @htags[img.id] != nil
+          @htags[img.id] = @htags[img.id] + img_tag.nome + " "
+        else
+          @htags[img.id] = img_tag.nome + " "
+        end
+      end
+    end    
+        
+
+    
+    render 'search'
+  end
+  
   # GET /imagems/new
   def new
     # @imagem = Imagem.new

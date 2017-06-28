@@ -18,6 +18,10 @@
     border: 0px !important;
 }
 
-#check_publico{
+#check_publico {
     width: 2%;
 } 
+
+#nome_imagem, #tamanho_imagem, #dt_inicio, #dt_fim{
+     
+}

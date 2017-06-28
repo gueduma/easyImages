@@ -1,0 +1,119 @@
+
+<div class = 'container'>
+   <h1>Buscar Imagens</h1>
+   
+   <%= form_tag search_click_path, method: "post", class: 'form-horizontal' do %>
+   
+   <div class="form-group">
+     <label for="usuario" class="col-sm-2 control-label">Usuário</label>
+     <div class="col-sm-4">
+         <p class="form-control-static"> <%= @usuario.name  %> </p>
+      </div>
+   </div>
+   
+   <div class="form-group">
+      <label for="file_uploaded" class="col-sm-2 control-label">Nome</label>
+      <div class="col-sm-4">
+         <%= text_field_tag :nome_imagem, '', :class =>'form-control' %>
+      </div>
+   </div>
+   
+   <div class="form-group">
+      <label for="file_uploaded" class="col-sm-2 control-label">Tamanho Limite</label>
+      <div class="col-sm-4">
+         <%= text_field_tag :tamanho_imagem, '', :class =>'form-control' %>
+      </div>
+   </div>
+   
+   <div class="form-group">
+      <label for="file_uploaded" class="col-sm-2 control-label">Criado entre</label>
+      <div class="col-sm-4">
+         <%= text_field_tag :dt_inicio, '', :class =>'form-control daterange' %> e <%= text_field_tag :dt_fim, '', :class =>'form-control daterange' %>
+      </div>
+   </div>
+   
+   <div class='form-group'>
+     <label for="check_publico" class="col-sm-2 control-label">Acesso</label>
+     <div class="col-sm-10 checkbox">
+         <label>
+           <%= check_box_tag :check_publico %> Público
+         </label>
+     </div>
+   </div>
+   
+   <div class='form-group'>
+     <label for="galeria" class="col-sm-2 control-label">Escolha a galeria</label>
+     <div class="col-sm-4">
+       <%= select_tag :galeria, options_from_collection_for_select(@galerias, "id", "nome" ), class: 'form-control' %>
+     </div>
+   </div>
+   
+   <div class = 'form-group'>
+      <label for="tagsinput" class="col-sm-2 control-label">Tags</label>
+      <div class="col-sm-4">
+         <%= text_field_tag :tags, '', :class =>'form-control', 'data-role'=>'tagsinput' %>
+         <!--'data-role'=>'tagsinput'-->
+       </div>
+   </div>
+   
+   <div class = 'form-group'>
+      <div class="col-sm-offset-2 col-sm-10">
+         <%= submit_tag "Buscar", id: "busca_imagem", class: 'btn btn-primary', style: 'margin-top:70px;border: 0px !important; width: 100px !important;' %>
+      </div>
+   </div>
+   
+   <% end %>
+   
+
+</div>
+
+<% if !(@imagens_busca == nil || @imagens_busca.size == 0) %>
+
+<table class='table'>
+  
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Data upload</th>
+      <th>Tamanho</th>
+      <th>Galeria</th>
+      <th>Tags</th>
+      <th>Público</th>
+      <th>Imagem</th>
+      <th>Download</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @imagens_busca.each do |imagem| %>
+      <tr>
+        <td><%= imagem.nome %></td>
+        <td><%= imagem.created_at %></td>
+        <td><%= imagem.tamanho.round(2) %> MB</td>
+        <td><%= @hgaleria[imagem.id_galeria] %></td>
+        <td><%= @htags[imagem.id] %></td>
+        <td><%= imagem.publico %></td>
+        <td><%= image_tag imagem.url, size: "300x200"  %></td>
+        <td><a href="<%= imagem.url %>" download="<%= imagem.nome %>" class="btn btn-block btn-primary">Baixar</a></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+<h5>Nenhuma imagem encontrada.</h5>
+<% end %>
+
+<%= link_to 'Voltar', imagems_path %>
+
+
+<script>
+    
+    $(document).ready(function {
+        $('#galeria').append($('<option>', {
+            value: 0,
+            text: 'Todos'
+        }));
+    });
+
+</script>
